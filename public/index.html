@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Reconnect 2024 Red</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Super Customizable Player Zone</h1>
+    <p>The home for the extremely flexible player spot!</p>
+    <p>Output</p>
+    <p id="output"></p>
+    <div>
+      <h2>View Player</h2>
+      <p>
+        You can view your player and all other public players here
+        <br />
+        Optionally, you can choose to view just one custom field
+      </p>
+      <form onsubmit="getPlayerCustomFields(); return false;">
+        <label for="selectPlayer">Select Player</label>
+        <select id="selectPlayer">
+          <option value="1" selected>Mockbeth (You)</option>
+          <option value="2">Mockey Mouse</option>
+        </select>
+        <br />
+        <label for="customFieldNameInput">Custom Field (optional)</label>
+        <input type="text" id="customFieldNameInput" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+      <label for="getPlayerCustomFieldsOutput">Custom Field Value</label>
+      <br />
+      <textarea readonly id="getPlayerCustomFieldsOutput" rows="15" cols="80" placeholder="View custom field values here"></textarea>
+    </div>
+    <div>
+      <h2>Custom Field Editor</h2>
+      <p>
+        Add or update the custom fields for your player in JSON format here!
+        <br />
+        You can add to existing objects without needing to write the old values.
+        <br />
+        <b>NOTE:</b> JSON arrays are not supported yet
+      </p>
+      <form onsubmit="updatePlayerCustomFields(); return false;">
+        <label for="updateCustomFieldsJsonInput">Custom Field JSON here</label>
+        <br />
+        <textarea id="updateCustomFieldsJsonInput" name="updateCustomFieldsJsonInput" rows="15" cols="80" placeholder="Add JSON custom text here"></textarea>
+        <br />
+        <input type="submit" value="Submit" />
+        <p id="updatePlayerCustomFieldsOutput"></p>
+      </form>
+    </div>
+    <hr />
+    <div>
+      <h2>Get your last timestamp</h2>
+      <p>Get the timestamp of when you last played. If you don't have one, then it'll be set to right now!</p>
+      <input type="button" value="Get my timestamp" onclick="getLastSavedTimestamp()" />
+      <p id="getLastSavedTimestampOutput"></p>
+    </div>
+    <div>
+      <h2>Delete your last timestamp</h2>
+      <p>Want to reset how long you've been tracked? You can delete your timestamp here</p>
+      <input type="button" value="Yes, delete my timestamp" onclick="deletePlayerTimestamp()" />
+      <p id="deletePlayerTimestampOutput"></p>
+    </div>
+  </body>
+</html>
